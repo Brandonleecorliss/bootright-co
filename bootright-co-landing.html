@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bootright — No hype. Real budgets.</title>
+<meta name="description" content="An honest, budget-first business launch coach. We tell you what it really costs, how long it really takes, and exactly what to do next. No hype. No income promises." />
+<meta property="og:title" content="Bootright — No hype. Real budgets." />
+<meta property="og:description" content="The honest version of starting a business: real budgets, real timelines, your next step. No dream-selling." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1C2B2D; --paper:#F4F5F1; --card:#FFFFFF; --pine:#236150; --pineSoft:#E4EFE9;
+    --clay:#C56A33; --claySoft:#F6E7DA; --brick:#B14A2E; --sage:#5E726C; --line:#DCDED7;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  a{color:inherit}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--clay);text-transform:uppercase}
+
+  /* top bar */
+  header{position:sticky;top:0;z-index:50;background:rgba(244,245,241,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:grid;place-items:center;color:#fff;font-family:var(--mono);font-size:15px;font-weight:600}
+  .bar .tag{font-family:var(--mono);font-size:11px;color:var(--sage);display:none}
+  @media(min-width:680px){.bar .tag{display:block}}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:14px;border:none;border-radius:11px;padding:11px 16px;cursor:pointer;text-decoration:none;transition:transform .12s ease,background .12s ease}
+  .btn-ink{background:var(--ink);color:#fff}
+  .btn-ink:hover{transform:translateY(-1px)}
+  .btn-line{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+  .btn-clay{background:var(--clay);color:#fff}
+  .btn-clay:hover{transform:translateY(-1px)}
+
+  /* hero */
+  .hero{padding:54px 0 30px}
+  .hero h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,7vw,58px);line-height:1.02;letter-spacing:-.025em;margin-top:14px}
+  .hero h1 .strike{color:var(--sage);text-decoration:line-through;text-decoration-color:var(--brick);text-decoration-thickness:3px}
+  .hero p.sub{font-size:clamp(15px,2.4vw,18px);color:var(--sage);max-width:620px;margin-top:18px;line-height:1.55}
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:26px}
+  .hero .micro{font-family:var(--mono);font-size:12px;color:var(--sage);margin-top:16px}
+
+  /* the receipt — signature element */
+  .receipt{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:38px;box-shadow:0 1px 0 var(--line)}
+  .receipt .rhead{display:flex;justify-content:space-between;align-items:center;padding:15px 18px;border-bottom:1px dashed var(--line)}
+  .receipt .rhead .t{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.04em}
+  .receipt .rhead .s{font-family:var(--mono);font-size:11px;color:var(--sage)}
+  .receipt .rrow{display:flex;justify-content:space-between;align-items:baseline;padding:11px 18px;border-bottom:1px dotted var(--line)}
+  .receipt .rrow .l{font-size:14.5px}
+  .receipt .rrow .v{font-family:var(--mono);font-size:14px;font-weight:600}
+  .receipt .rrow .v.bad{color:var(--brick);text-decoration:line-through;text-decoration-thickness:2px}
+  .receipt .rrow .v.good{color:var(--pine)}
+  .receipt .total{display:flex;justify-content:space-between;align-items:center;padding:15px 18px;background:var(--pineSoft)}
+  .receipt .total .l{font-family:var(--display);font-weight:800;font-size:15px}
+  .receipt .total .v{font-family:var(--mono);font-weight:600;font-size:16px;color:var(--pine)}
+
+  /* sections */
+  section{padding:46px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-family:var(--display);font-weight:800;font-size:clamp(26px,4.5vw,38px);line-height:1.08;letter-spacing:-.02em;margin-top:10px}
+  .sec-head p{color:var(--sage);font-size:15.5px;margin-top:12px;line-height:1.6}
+
+  .divider{height:1px;background:var(--line)}
+
+  /* the lie */
+  .lie-grid{display:grid;gap:14px;margin-top:26px}
+  @media(min-width:680px){.lie-grid{grid-template-columns:1fr 1fr}}
+  .lie{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--brick);border-radius:13px;padding:18px}
+  .lie .myth{font-family:var(--display);font-weight:700;font-size:16px;color:var(--ink)}
+  .lie .truth{font-size:14px;color:var(--sage);margin-top:7px;line-height:1.55}
+  .lie .truth b{color:var(--ink);font-weight:600}
+
+  /* pillars */
+  .pillars{display:grid;gap:14px;margin-top:26px}
+  @media(min-width:680px){.pillars{grid-template-columns:1fr 1fr}}
+  .pillar{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .pillar .n{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--clay)}
+  .pillar h3{font-family:var(--display);font-weight:700;font-size:18px;margin-top:8px}
+  .pillar p{font-size:14px;color:var(--sage);margin-top:7px;line-height:1.55}
+
+  /* inside */
+  .inside{background:var(--ink);color:#fff;border-radius:20px;padding:34px 26px;margin-top:26px}
+  .inside .eyebrow{color:#E7B58F}
+  .inside h2{font-family:var(--display);font-weight:800;font-size:clamp(24px,4vw,34px);line-height:1.1;margin-top:10px;letter-spacing:-.02em}
+  .inside .items{display:grid;gap:13px;margin-top:24px}
+  @media(min-width:680px){.inside .items{grid-template-columns:1fr 1fr}}
+  .ins{background:#24383A;border:1px solid #31494B;border-radius:13px;padding:17px}
+  .ins .h{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;font-size:15.5px}
+  .ins .pill{font-family:var(--mono);font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px}
+  .ins .pill.free{background:var(--pineSoft);color:var(--pine)}
+  .ins .pill.pro{background:var(--claySoft);color:var(--brick)}
+  .ins p{font-size:13.5px;color:#C6D2CE;margin-top:8px;line-height:1.5}
+
+  /* founder */
+  .founder{display:flex;gap:16px;align-items:flex-start;background:var(--pineSoft);border:1px solid rgba(35,97,80,.18);border-radius:16px;padding:22px;margin-top:26px}
+  .founder .av{width:46px;height:46px;border-radius:12px;background:var(--pine);display:grid;place-items:center;color:#fff;flex-shrink:0;font-family:var(--mono);font-weight:600;font-size:18px}
+  .founder .q{font-size:15.5px;color:var(--ink);line-height:1.6}
+  .founder .sig{font-family:var(--mono);font-size:12px;color:var(--sage);margin-top:10px}
+
+  /* promise */
+  .promise{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .promise .ph{padding:15px 18px;border-bottom:1px dashed var(--line);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.04em}
+  .promise .prow{display:flex;gap:11px;align-items:flex-start;padding:13px 18px;border-bottom:1px dotted var(--line);font-size:14.5px}
+  .promise .prow:last-child{border-bottom:none}
+  .promise .ck{color:var(--pine);font-family:var(--mono);font-weight:600;flex-shrink:0}
+
+  /* email capture */
+  .capture{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;margin-top:26px;text-align:center}
+  .capture h2{font-family:var(--display);font-weight:800;font-size:clamp(22px,3.6vw,30px);letter-spacing:-.02em}
+  .capture p{color:var(--sage);font-size:15px;margin-top:10px;max-width:460px;margin-left:auto;margin-right:auto}
+  .capture .form{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+  .capture input{flex:1;min-width:220px;max-width:340px;background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;font-size:15px;font-family:var(--body);color:var(--ink);outline:none}
+  .capture input:focus{border-color:var(--pine)}
+  .capture .note{font-family:var(--mono);font-size:11.5px;color:var(--sage);margin-top:14px}
+  .capture .ok{color:var(--pine);font-weight:600;font-size:15px;margin-top:16px;font-family:var(--display)}
+
+  /* final */
+  .final{text-align:center;padding:54px 0 30px}
+  .final h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,5vw,44px);line-height:1.05;letter-spacing:-.025em}
+  .final p{color:var(--sage);font-size:16px;margin-top:14px}
+  .final .cta-row{display:flex;justify-content:center;flex-wrap:wrap;gap:11px;margin-top:24px}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 40px;margin-top:30px}
+  .foot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;font-size:13px;color:var(--sage)}
+  .foot a{text-decoration:none;color:var(--sage)}
+  .foot a:hover{color:var(--ink)}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="brand"><span class="mark">B</span>Bootright</div>
+    <span class="tag">No hype. Real budgets.</span>
+    <a class="btn btn-ink" href="https://bootright.app">Start free →</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <span class="eyebrow">The honest business coach</span>
+    <h1>You were sold a <span class="strike">dream</span>.<br/>Here's the receipt.</h1>
+    <p class="sub">Most "start a business" advice sells you a fantasy: no money, quick riches, just believe. Bootright does the opposite. We tell you what it really costs, how long it really takes, and exactly what to do next — matched to the money, time, and skills you actually have.</p>
+    <div class="cta-row">
+      <a class="btn btn-clay" href="https://bootright.app">Start free at bootright.app</a>
+      <a class="btn btn-line" href="#how">See how it works</a>
+    </div>
+    <div class="micro">Free to start · No card to sign up · Zero income promises</div>
+
+    <!-- SIGNATURE: the honest receipt -->
+    <div class="receipt reveal" aria-label="Hype versus honest comparison">
+      <div class="rhead">
+        <span class="t">THE HYPE vs THE TRUTH</span>
+        <span class="s">every line shown</span>
+      </div>
+      <div class="rrow"><span class="l">"Start with no money"</span><span class="v bad">$0</span></div>
+      <div class="rrow"><span class="l">A small, honest startup budget</span><span class="v good">$100–700</span></div>
+      <div class="rrow"><span class="l">"Quit your job in 90 days"</span><span class="v bad">90 days</span></div>
+      <div class="rrow"><span class="l">Real time to steady income</span><span class="v good">3–6 months</span></div>
+      <div class="rrow"><span class="l">"Secret" guru system</span><span class="v bad">$997</span></div>
+      <div class="rrow"><span class="l">Honest plan + your next step</span><span class="v good">Free</span></div>
+      <div class="total"><span class="l">What honesty costs you</span><span class="v">$0 to find out</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- THE LIE -->
+  <section id="why">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Why this exists</span>
+      <h2>Most business advice isn't wrong. It's just selling you a fantasy.</h2>
+      <p>We're not here to trash people. We're here to bust the patterns that cost real beginners real money. Here's what gets sold, and what's actually true.</p>
+    </div>
+    <div class="lie-grid">
+      <div class="lie reveal"><div class="myth">"You can start with no money."</div><div class="truth">Sounds inspiring. Gets people stuck. <b>Most real businesses need a small, honest budget</b> — and knowing the number is what saves you, not pretending it's zero.</div></div>
+      <div class="lie reveal"><div class="myth">"Make money in your first weeks."</div><div class="truth">The timeline wasn't broken — the promise was. <b>Most businesses take 3–6 months</b> to find steady income. Knowing that keeps you from quitting right before it works.</div></div>
+      <div class="lie reveal"><div class="myth">"Buy my course for the secret."</div><div class="truth">Most gurus earn from <b>selling the dream, not doing the business</b>. The real "secret" is honest work over honest time. Nobody sells that — it's not exciting.</div></div>
+      <div class="lie reveal"><div class="myth">"A bad month means a bad idea."</div><div class="truth">Usually false. <b>Most failure is quitting early</b>, skipping validation, or undercharging. The idea is rarely the real problem.</div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PILLARS -->
+  <section id="how">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What Bootright does instead</span>
+      <h2>Charge for doing, not for knowing.</h2>
+      <p>Four rules the whole thing runs on. They're also the reason it stays free to start.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal"><div class="n">01</div><h3>Real budgets</h3><p>A receipt for your money: where every dollar goes, your real monthly costs, and the honest break-even point — built around what you actually have, not a fantasy number.</p></div>
+      <div class="pillar reveal"><div class="n">02</div><h3>Real timelines</h3><p>Day 1, Week 1, Month 1. A dated roadmap of exact first steps, costs, and the challenges most people hit — so the slow months don't blindside you into quitting.</p></div>
+      <div class="pillar reveal"><div class="n">03</div><h3>Your next step</h3><p>Not a pile of theory. A few doable tasks at a time, personalized to your business, your area, and your situation — so you always know the very next thing to do.</p></div>
+      <div class="pillar reveal"><div class="n">04</div><h3>No income promises. Ever.</h3><p>We will never tell you you'll make $X by next month. Anyone who does is guessing or lying. We give you the honest math and let you decide.</p></div>
+    </div>
+  </section>
+
+  <!-- INSIDE -->
+  <section>
+    <div class="inside reveal">
+      <span class="eyebrow">What's inside</span>
+      <h2>An honest plan, plus a coach team that does real work.</h2>
+      <div class="items">
+        <div class="ins"><div class="h">Readiness check <span class="pill free">FREE</span></div><p>A 60-second honesty check on whether you should start right now — and it's okay if the answer is "not yet."</p></div>
+        <div class="ins"><div class="h">Business match + roadmap <span class="pill free">FREE</span></div><p>Answer 6 questions, get business paths that fit your real budget and a dated, step-by-step roadmap.</p></div>
+        <div class="ins"><div class="h">Honest budget tool <span class="pill free">FREE</span></div><p>See where every dollar goes and your true break-even — no guessing, no fake numbers.</p></div>
+        <div class="ins"><div class="h">Your AI coach team <span class="pill pro">PRO</span></div><p>Agents that do real work from your situation: ideas, marketing, local research, money, and your next move.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section>
+    <div class="sec-head reveal"><span class="eyebrow">Who's behind it</span></div>
+    <div class="founder reveal">
+      <div class="av">B</div>
+      <div>
+        <div class="q">"I believed the hype, lost real money on it, and built the honest version I wish I'd had. No dream-selling here — just the real math and your next step. Bootright is the coach I needed when I was starting out and getting sold fantasies instead of facts."</div>
+        <div class="sig">— Founder, Brandon Corliss</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISE -->
+  <section>
+    <div class="sec-head reveal">
+      <span class="eyebrow">Our promise</span>
+      <h2>The honest guarantee.</h2>
+    </div>
+    <div class="promise reveal">
+      <div class="ph">WHAT WE WILL AND WON'T DO</div>
+      <div class="prow"><span class="ck">✓</span><span>We'll tell you what it really costs and how long it really takes.</span></div>
+      <div class="prow"><span class="ck">✓</span><span>We'll always show the free option first, and label anything paid clearly.</span></div>
+      <div class="prow"><span class="ck">✓</span><span>We'll give you your exact next step, not a wall of theory.</span></div>
+      <div class="prow"><span class="ck">✕</span><span>We'll never promise you'll make a certain amount of money.</span></div>
+      <div class="prow"><span class="ck">✕</span><span>We'll never use fake urgency, fake scarcity, or made-up numbers.</span></div>
+    </div>
+  </section>
+
+  <!-- CAPTURE -->
+  <section>
+    <div class="capture reveal">
+      <h2>Not ready to start? Get the honest stuff.</h2>
+      <p>No spam, no hype. Just honest, useful notes on starting a real business on a real budget — and a nudge when it's worth your time.</p>
+      <div class="form" id="capForm">
+        <input id="capEmail" type="email" inputmode="email" placeholder="you@email.com" aria-label="Your email" />
+        <button class="btn btn-ink" id="capBtn" type="button">Keep me honest</button>
+      </div>
+      <div class="ok" id="capOk" style="display:none">You're on the list. Talk soon — Brandon.</div>
+      <div class="note">We'll only email when it's actually useful. Unsubscribe anytime.</div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final">
+    <h2>Start where you actually are.</h2>
+    <p>Free to start. No card. No dream-selling.</p>
+    <div class="cta-row">
+      <a class="btn btn-clay" href="https://bootright.app">Open Bootright →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand" style="font-size:16px"><span class="mark" style="width:24px;height:24px;font-size:12px">B</span>Bootright</div>
+    <div>No hype. Real budgets. · <a href="https://bootright.app">bootright.app</a> · <a href="mailto:support@bootright.co">support@bootright.co</a></div>
+  </div>
+</footer>
+
+<script>
+  // ---- email capture ----
+  // The publishable (anon) key is safe to expose in a frontend. Paste yours between the quotes
+  // to turn on database capture. Leave it empty and the form falls back to an email link.
+  const SUPABASE_URL = "https://krypdvhhnijlzsirxxix.supabase.co";
+  const SUPABASE_ANON_KEY = ""; // <-- paste your sb_publishable_... key here (optional)
+
+  const btn = document.getElementById('capBtn');
+  const emailEl = document.getElementById('capEmail');
+  const okEl = document.getElementById('capOk');
+  const formEl = document.getElementById('capForm');
+
+  function validEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+
+  btn.addEventListener('click', async () => {
+    const email = (emailEl.value || '').trim();
+    if (!validEmail(email)) { emailEl.focus(); emailEl.style.borderColor = '#B14A2E'; return; }
+    btn.disabled = true; btn.textContent = 'Saving...';
+    let saved = false;
+    if (SUPABASE_ANON_KEY) {
+      try {
+        const r = await fetch(SUPABASE_URL + '/rest/v1/readiness_signups', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({ email: email, verdict: 'landing' })
+        });
+        saved = r.ok;
+      } catch (e) { saved = false; }
+    }
+    if (!saved && !SUPABASE_ANON_KEY) {
+      // fallback: open an email so the signup still reaches you
+      window.location.href = 'mailto:supportbootright@gmail.com?subject=Keep%20me%20honest&body=' + encodeURIComponent(email);
+    }
+    formEl.style.display = 'none';
+    okEl.style.display = 'block';
+  });
+
+  // ---- scroll reveal ----
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
