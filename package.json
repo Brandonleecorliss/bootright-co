@@ -1,0 +1,17 @@
+{
+  "name": "bootright-co",
+  "version": "1.0.0",
+  "description": "Bootright landing page - No hype. Real budgets.",
+  "scripts": {
+    "test": "echo \"No tests configured\""
+  },
+  "keywords": [
+    "bootright",
+    "landing-page"
+  ],
+  "author": "Brandon Corliss",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
