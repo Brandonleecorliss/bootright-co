@@ -51,6 +51,14 @@
   .trial .tt{font-family:var(--display,inherit);font-weight:800;font-size:16px}
   .trial .ts{font-size:13px;color:#C6D2CE;line-height:1.55;margin-top:5px}
   .trial .tk{font-family:var(--mono);font-size:11px;color:#8FCBB0;margin-top:9px;letter-spacing:.04em}
+  .faq{max-width:720px}
+  .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:9px;overflow:hidden}
+  .faq summary{cursor:pointer;padding:14px 16px;font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:var(--mono);color:var(--sage);font-size:16px;flex-shrink:0}
+  .faq details[open] summary::after{content:"–"}
+  .faq .a{padding:0 16px 14px;font-size:14px;color:var(--sage);line-height:1.6}
+  .faq .a b{color:var(--ink)}
 
   /* the receipt, signature element */
   .receipt{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:38px;box-shadow:0 1px 0 var(--line)}
@@ -264,6 +272,42 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Honest answers</span>
+      <h2>Questions people actually ask.</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Is it really free?</summary>
+        <div class="a">Yes. The readiness check, business match, full roadmaps, budget calculator, and accountability tools are <b>free forever</b>, not a teaser. Pro ($9/mo) adds the AI coach team. You can build a real business without ever paying us.</div>
+      </details>
+      <details>
+        <summary>Does the AI account for my specific type of business?</summary>
+        <div class="a">Yes, and this matters more than people realize. A local cleaning service and a digital product have completely different startup costs, timelines to first sale, and first steps. <b>Your roadmap, budget, and timeline are built for the specific business path you choose</b>, and the AI agents work from your business, your budget, and your area, not generic advice.</div>
+      </details>
+      <details>
+        <summary>How does the free trial work? Will I be charged?</summary>
+        <div class="a"><b>No card, no charge, ever.</b> You get 7 days of full Pro without entering a payment method. When it ends, it just ends, you drop back to the free plan unless you actively choose to subscribe. We can't charge you because we never took a card. That's the point.</div>
+      </details>
+      <details>
+        <summary>Can I cancel anytime?</summary>
+        <div class="a">Yes, in two clicks, right from the app. No emails, no retention phone call, no hoops. You keep Pro until the end of what you've paid for, and then it stops. Easy to join, easy to leave.</div>
+      </details>
+      <details>
+        <summary>Will Bootright tell me how much money I'll make?</summary>
+        <div class="a"><b>No, and be suspicious of anyone who will.</b> Nobody can honestly promise your income. We give you the real costs, the real timelines, honest break-even math, and your exact next step. What you build with that is yours.</div>
+      </details>
+      <details>
+        <summary>What if I'm not sure I'm ready to start?</summary>
+        <div class="a">That's what the free readiness check is for, a 60-second honest look at whether now is your moment. And it's okay if the answer is "not yet." We'd rather tell you to wait than take your money for a launch you're not set up for.</div>
+      </details>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- CAPTURE -->
   <section>
     <div class="capture reveal">
@@ -291,7 +335,7 @@
 <footer>
   <div class="wrap foot">
     <div class="brand" style="font-size:16px"><img class="mark" src="data:image/png;base64,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" alt="Bootright logo" style="width:24px;height:24px;object-fit:cover;border:none;" />Bootright</div>
-    <div>No hype. Real budgets. · <a href="https://bootright.app">bootright.app</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="mailto:support@bootright.co">support@bootright.co</a></div>
+    <div>No hype. Real budgets. · <a href="https://bootright.app">bootright.app</a> · <a href="mailto:support@bootright.co">support@bootright.co</a></div>
   </div>
 </footer>
 
@@ -300,7 +344,7 @@
   // The publishable (anon) key is safe to expose in a frontend. Paste yours between the quotes
   // to turn on database capture. Leave it empty and the form falls back to an email link.
   const SUPABASE_URL = "https://krypdvhhnijlzsirxxix.supabase.co";
-  const SUPABASE_ANON_KEY = ""; // <-- paste your sb_publishable_... key here (optional)
+  const SUPABASE_ANON_KEY = "sb_publishable_OfmE-tgkEdsWVJbJc5peZQ_jc2KtK81"; // <-- paste your sb_publishable_... key here (optional)
 
   const btn = document.getElementById('capBtn');
   const emailEl = document.getElementById('capEmail');
